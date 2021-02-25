@@ -9,9 +9,7 @@ public class menuPage extends BasePage {
 		clicarBotao("Clique para expandir o menu");
 		clicarLink("Processos");
 		clicarLink("Novo");
-		
-		//mat-input-2 --id Período De
-		//mat-input-3 --id Período Até
+
 				
 	} 
 
