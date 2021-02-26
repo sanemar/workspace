@@ -14,21 +14,22 @@ import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import br.gi.pkg.pages.loginPage;
+import br.gi.pkg.pages.listaProcessoPage;
+//import br.gi.pkg.utilities.constants;
 
 public class BaseTest {
 	
-	//private loginPage page = new loginPage();
+	private listaProcessoPage page = new listaProcessoPage();
 	
 	@Rule
 	public TestName testName = new TestName();
 	
 	@Before
 	public void inicializa(){
-		//page.acessarListaProcesso();
-		//page.setEmail("gialmarques@comgas.com.br");
-		//page.setSenha("user");
-		//page.Acessar();
+/*		page.acessarListaProcesso();
+		page.setEmail("gialmarques@comgas.com.br");
+		page.setSenha("user");
+		page.Acessar();*/
 	}
 	
 	@After
