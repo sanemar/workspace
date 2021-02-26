@@ -8,7 +8,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet; 
 import org.apache.poi.ss.usermodel.Workbook;
 
-import br.gi.pkg.util.constants;
+//import br.gi.pkg.util.constants;
+
 
 
 public class excelUtils {
@@ -22,7 +23,7 @@ public class excelUtils {
     public void setExcelFile(String excelFilePath,String excelFileName, String sheetName) throws IOException {
     	
     	// Cria um objeto da classe File para abrir o arquivo xlsx    	
-        File file = new File("Path_TestData" + "\\" + "Teste.xlsx");
+        File file = new File("excelFilePath" + "\\" + "Teste.xls");
         
         // Cria um objeto da classe FileInputStream para ler o arquivo excel
         FileInputStream inputStream = new FileInputStream(file);        
@@ -37,7 +38,7 @@ public class excelUtils {
         	if(fileExtensionName.equals(".xlsx")){
 
         	//Se for um arquivo xlsx, crie o objeto da classe
-        		XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
+        		//XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
 
         }
 
@@ -63,7 +64,7 @@ public class excelUtils {
         		//Cria um loop para imprimir os valores das células em uma linha
         		for (int j = 0; j < row.getLastCellNum(); j++) {
 
-        			//Imprime dados do Excel no console
+        		//Imprime dados do Excel no console
         			System.out.print(row.getCell(j).getStringCellValue()+"|| ");
 
         		}
@@ -80,12 +81,12 @@ public class excelUtils {
     		excelUtils objExcelFile = new excelUtils();
 
     		//Prepare o caminho do arquivo excel
-    		String filePath = System.getProperty("user.dir")+"\\src\\br.gi.pkg.testData";
-
+    		String excelFilePath = System.getProperty("user.dir")+"\\git\\workspace\\src\\main\\java\\br\\gi\\pkg\\util";
+    		    																
     		//Chama o método de leitura de arquivo da classe para ler os dados
-    		objExcelFile.setExcelFile(filePath,"Teste.xlsx","Planilha1");
+    		objExcelFile.setExcelFile(excelFilePath,"Teste.xls","Planilha1");
 
-    	}     
+    	}   
 
 }
 
