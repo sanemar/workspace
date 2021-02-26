@@ -1,4 +1,4 @@
-package br.gi.pkg.utilities;
+package br.gi.pkg.util;
 
 import java.io.File; 
 import java.io.FileInputStream; 
@@ -7,7 +7,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row; 
 import org.apache.poi.ss.usermodel.Sheet; 
 import org.apache.poi.ss.usermodel.Workbook;
-//import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import br.gi.pkg.util.constants;
 
 
 public class excelUtils {
@@ -21,13 +22,13 @@ public class excelUtils {
     public void setExcelFile(String excelFilePath,String excelFileName, String sheetName) throws IOException {
     	
     	// Cria um objeto da classe File para abrir o arquivo xlsx    	
-        File file = new File("Path_TestData" + "\\" + "PLNTEST_Consultar Processo.xlsx");
+        File file = new File("Path_TestData" + "\\" + "Teste.xlsx");
         
         // Cria um objeto da classe FileInputStream para ler o arquivo excel
         FileInputStream inputStream = new FileInputStream(file);        
 
     
-        Workbook meuWorkbook = null;
+        Workbook workbook = null;
 
         //Encontre a extensão do arquivo dividindo o nome do arquivo na substring e obtendo apenas o nome da extensão
         String fileExtensionName = excelFileName.substring(excelFileName.indexOf("."));
@@ -36,7 +37,7 @@ public class excelUtils {
         	if(fileExtensionName.equals(".xlsx")){
 
         	//Se for um arquivo xlsx, crie o objeto da classe
-        		XSSFWorkbook workbook = new XSSFWorkbook (inputStream);
+        		XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
 
         }
 
@@ -49,7 +50,7 @@ public class excelUtils {
         		}
 
         	//Lê a planilha dentro da pasta de trabalho pelo nome
-        	Sheet sheet = workbook.getSheet("Consulta");
+        	Sheet sheet = workbook.getSheet("Planilha1");
 
         	//Encontre o número de linhas no arquivo excel
         	int rowCount = sheet.getLastRowNum()-sheet.getFirstRowNum();
@@ -82,7 +83,7 @@ public class excelUtils {
     		String filePath = System.getProperty("user.dir")+"\\src\\br.gi.pkg.testData";
 
     		//Chama o método de leitura de arquivo da classe para ler os dados
-    		objExcelFile.setExcelFile(filePath,"PLNTEST_Consultar Processo.xlsx","Consulta");
+    		objExcelFile.setExcelFile(filePath,"Teste.xlsx","Planilha1");
 
     	}     
 
