@@ -2,14 +2,21 @@ package br.gi.pkg.core;
 
 import static br.gi.pkg.core.DriverFactory.getDriver;
 
+//import java.io.IOException;
+//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+//import java.util.Date;
+//import java.util.Iterator;
 import java.util.List;
 
+//import org.apache.poi.ss.usermodel.Cell;
+//import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
 
 
 public class BasePage {
@@ -120,6 +127,106 @@ public class BasePage {
 	public String obterValueElemento(String id) {
 		return getDriver().findElement(By.id(id)).getAttribute("value");
 	}
+	
+	/********* Date Picker ************/	
+	
+	/*public void clicarBotaoCalendario(){	
+		getDriver().findElement(By.className("mat-datepicker-toggle")).click();
+	}
+	
+	public String obterDataCalendario(String dataSelecionada)throws IOException {		
+	
+		WebElement dateWidget = getDriver().findElement(By.className("mat-datepicker-toggle mat-datepicker-toggle-active"));
+		
+		List<Dias> calendario = new ArrayList<Dias>();
+		
+		
+		try {
+			
+			while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                Iterator<Cell> cellIterator = row.cellIterator();
+
+                Dias dia = new Dias();
+                listaDias.add(dia);
+                while (cellIterator.hasNext()) {
+                       Cell cell = cellIterator.next();
+		}
+		
+		
+		
+		List<WebElement> columns = dateWidget.findElements(By.tagName("td"));
+		
+		String dataSelecionada = getDriver().findElement(By.cssSelector("aria-selected=true")).click();
+		
+		for (WebElement cell: columns){
+			//Clicar em uma data 
+			cell.findElement(By.cssSelector("aria-selected = true"));
+			if (cell.getText().equals("13")){
+				
+				return getDriver().findElement(By.tagName("td")).getAttribute("dataSelecionada");
+							
+			}
+		}
+	}
+	
+	public String obterDataSelecionada(String dataSelecionada){		
+		WebElement dateWidget = getDriver().findElement(By.className(".mat-calendar-body")).click();
+		Date d = new Date(1);
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MMMM/yyyy");
+		String date = formatter.format(d);
+		String splitter[] = date.split("/");
+		String month_year = splitter[1];
+		String day = splitter[0]; 
+		System.out.println(month_year);
+		System.out.println(day);
+		
+		return getDriver().findElement(By.cssSelector("aria-selected = true")).getAttribute(month_year,day);
+		
+		//selectDate(month_year,day); 
+		
+		public void selectDate(String month_year, String select_day) throws InterruptedException{
+			
+			List<WebElement> elements = driver.findElements(By.xpath("//div[@class='ui-datepicker-title']/span[1]"));
+
+			for (int i=0; i<elements.size();i++)
+			{
+			System.out.println(elements.get(i).getText());
+
+			//Selecting the month
+			if(elements.get(i).getText().equals(month_year))
+			{ 
+
+			//Selecting the date 
+			List<WebElement> days = driver.findElements(By.xpath("//div[@class='ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-2']/div[2]/table/tbody/tr/td/a"));
+
+			for (WebElement d:days)
+			{ 
+			System.out.println(d.getText());
+			if(d.getText().equals(select_day))
+			{
+			d.click();
+			Thread.sleep(10000);
+			return;
+			}
+			} 
+
+			} 
+
+			}
+			driver.findElement(By.xpath("//div[@class='ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-2']/div[2]/div/a/span")).click();
+			selectDate(month_year,select_day);
+
+			}
+
+			@AfterMethod
+			public void closeBrowser()
+			{
+			driver.quit();
+			}
+
+	}
+*/
 		
 	/********* Link ************/
 		

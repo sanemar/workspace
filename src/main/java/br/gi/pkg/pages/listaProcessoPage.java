@@ -1,17 +1,15 @@
 package br.gi.pkg.pages;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
-
 import br.gi.pkg.core.BasePage;
+
 
 public class listaProcessoPage extends BasePage {
 	
-	//Filtros
+	//Filtros	
 	
-	@Test
 	public void setDataDe(String data){
-		escrever("mat-input-10", data);		
+		obterValorCombo("");	
 	}
 	
 	public void setDataAte(String data){
@@ -20,12 +18,12 @@ public class listaProcessoPage extends BasePage {
 	
 	public void setNumeroProtocolo(String numeroProtocolo){
 		escrever("mat-input-12", numeroProtocolo);
-	}
+	}		
 	
-	public void setTipoProcesso(String tipoProcesso){
-		escrever("mat-select-6", tipoProcesso);
-	}
-	
+	public void selecionarTipoProcesso(String tipoProcesso){
+		selecionarCombo("mat-select-6", tipoProcesso);
+	}	
+
 	public void setStatus(String status){
 		escrever("mat-select-7", status);
 	}
