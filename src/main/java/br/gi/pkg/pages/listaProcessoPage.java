@@ -1,6 +1,12 @@
 package br.gi.pkg.pages;
 
+import static br.gi.pkg.core.DriverFactory.getDriver;
+
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import br.gi.pkg.core.BasePage;
 
 
@@ -8,8 +14,10 @@ public class listaProcessoPage extends BasePage {
 	
 	//Filtros	
 	
-	public void setDataDe(String data){
-		obterValorCombo("");	
+	public void selecionaDataDe(String data){
+		
+		//clica para abrir o datapicker
+		clicarBotao(By.className("mat-datepicker-toggle"));		
 	}
 	
 	public void setDataAte(String data){
@@ -24,8 +32,8 @@ public class listaProcessoPage extends BasePage {
 		selecionarCombo("mat-select-6", tipoProcesso);
 	}	
 
-	public void setStatus(String status){
-		escrever("mat-select-7", status);
+	public void selecionarStatus(String status){
+		selecionarCombo("mat-select-7", status);
 	}
 	
 	public void setSubprefeitura(String subprefeitura){

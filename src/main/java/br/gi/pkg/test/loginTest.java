@@ -1,20 +1,20 @@
 package br.gi.pkg.test;
 
-import br.gi.pkg.core.BasePage;
+import br.gi.pkg.core.BaseTest;
 import br.gi.pkg.pages.loginPage;
 import org.junit.Test;
 
-public class loginTest extends BasePage {
+public class loginTest extends BaseTest {
 	
-	loginPage loginPage = new loginPage();
+	loginPage page = new loginPage();
 	
 	@Test
 	public void test(){		
 
-		loginPage.acessarListaProcesso();
-		loginPage.setEmail("gialmarques@comgas.com.br");
-		loginPage.setSenha("user");
-		loginPage.acessar();
+		page.acessarListaProcesso();
+		page.setEmail("gialmarques@comgas.com.br");
+		page.setSenha("user");
+		page.acessar();
 		
 	}
 }

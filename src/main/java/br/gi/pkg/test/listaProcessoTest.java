@@ -3,18 +3,77 @@ package br.gi.pkg.test;
 import br.gi.pkg.core.BaseTest;
 import br.gi.pkg.pages.listaProcessoPage;
 
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import static br.gi.pkg.core.DriverFactory.getDriver;
+
+import java.util.Calendar;
+import java.util.List;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 //import utilities.constants;
 //import utilities.ExcelUtils;
 //import java.io.IOException;
 
-import org.junit.Test;
-
-
 
 public class listaProcessoTest extends BaseTest{
 	
 	listaProcessoPage listaProcesso = new listaProcessoPage();
+	
+	private String today;
+	
+	@Test
+	public void selecionarDataDe(){
+		
+		//Pega a data atual como um número selecionado
+        today = getCurrentDay();
+        System.out.println("Today's number: " + today + "\n");
+        
+        listaProcesso.selecionaDataDe(today);
+        
+        //localiza o formulário do calendário
+      		WebElement dateWidget = getDriver().findElement(By.className("mat-datepicker-toggle mat-datepicker-toggle-active"));
+      		//(By.xpath(".//*[@id='cdk-overlay-13']/div[2]/table/tbody"));
+      				
+      		//armazena as linhas da tabela do controle
+      		//List<WebElement> rows = dateWidgetFrom.findElements(By.tagName("tr"));
+      		 
+      		//armazena as colunas da tabela do controle
+      		List<WebElement> columns = dateWidgetFrom.findElements(By.tagName("td"));
+        
+      //DatePicker é uma tabela. Percorrer as células da tabela e se uma célula corresponder à data atual, seleciona ela.
+        for (WebElement cell: columns) {
+            /*
+            //If you want to click 18th Date
+            if (cell.getText().equals("18")) {
+            */
+            //Select Today's Date
+            if (cell.getText().equals(today)) {
+                cell.click();
+                break;
+            }
+        }
+            
+       //Pega a data atual
+        private String getCurrentDay(){
+        	
+            //Cria um objeto do tipo Calender
+            Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+     
+            //Pega a data atual selecionada como um número
+            int todayInt = calendar.get(Calendar.DAY_OF_MONTH);
+            System.out.println("Today Int: " + todayInt +"\n");
+     
+            //Converte inteiro para String
+            String todayStr = Integer.toString(todayInt);
+            System.out.println("Today Str: " + todayStr + "\n");
+     
+            return todayStr;
+        }
+	}         
 
 	@Test
 	public void filtrarNumeroProtocolo(){		
@@ -27,8 +86,19 @@ public class listaProcessoTest extends BaseTest{
 		listaProcesso.selecionarTipoProcesso("Manutenção Preventiva");
 		listaProcesso.Filtrar();		
 	}
+	
+	@Test
+	public void filtrarStatus(){		
+		listaProcesso.selecionarStatus("Cancelado");
+		listaProcesso.Filtrar();		
+	}
 
 }
+	
+	
+		
+
+
 	
 	
 	

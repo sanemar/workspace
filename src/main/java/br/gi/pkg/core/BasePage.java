@@ -9,6 +9,7 @@ import java.util.ArrayList;
 //import java.util.Iterator;
 import java.util.List;
 
+import org.junit.AfterClass;
 //import org.apache.poi.ss.usermodel.Cell;
 //import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.Alert;
@@ -128,15 +129,10 @@ public class BasePage {
 		return getDriver().findElement(By.id(id)).getAttribute("value");
 	}
 	
-	/********* Date Picker ************/	
 	
-	/*public void clicarBotaoCalendario(){	
-		getDriver().findElement(By.className("mat-datepicker-toggle")).click();
-	}
+	/*public String obterDataCalendario(String dataSelecionada)throws IOException {		
 	
-	public String obterDataCalendario(String dataSelecionada)throws IOException {		
-	
-		WebElement dateWidget = getDriver().findElement(By.className("mat-datepicker-toggle mat-datepicker-toggle-active"));
+		
 		
 		List<Dias> calendario = new ArrayList<Dias>();
 		
