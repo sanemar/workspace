@@ -21,9 +21,15 @@ public class loginPage extends BasePage {
 		escrever("txtSenha", senha);
 	}
 	
-	public void Acessar(){
+	public void acessar(){
 		clicarBotao(By.xpath("//button[.='Acessar']"));
 	}
 	
-	
+	public void logar(String email, String senha) {
+		setEmail(email);
+		setSenha(senha);
+		acessar();
+	}
+		
 }
+

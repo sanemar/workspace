@@ -16,20 +16,17 @@ import org.openqa.selenium.TakesScreenshot;
 
 import br.gi.pkg.pages.listaProcessoPage;
 //import br.gi.pkg.utilities.constants;
+import br.gi.pkg.pages.loginPage;
 
 public class BaseTest {
 	
-	private listaProcessoPage page = new listaProcessoPage();
 	
 	@Rule
 	public TestName testName = new TestName();
 	
 	@Before
 	public void inicializa(){
-/*		page.acessarListaProcesso();
-		page.setEmail("gialmarques@comgas.com.br");
-		page.setSenha("user");
-		page.Acessar();*/
+
 	}
 	
 	@After

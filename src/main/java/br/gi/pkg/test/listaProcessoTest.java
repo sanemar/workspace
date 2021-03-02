@@ -1,6 +1,6 @@
 package br.gi.pkg.test;
 
-import br.gi.pkg.core.BasePage;
+import br.gi.pkg.core.BaseTest;
 import br.gi.pkg.pages.listaProcessoPage;
 
 
@@ -12,7 +12,7 @@ import org.junit.Test;
 
 
 
-public class listaProcessoTest extends BasePage{
+public class listaProcessoTest extends BaseTest{
 	
 	listaProcessoPage listaProcesso = new listaProcessoPage();
 

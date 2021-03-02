@@ -14,7 +14,7 @@ public class loginTest extends BasePage {
 		loginPage.acessarListaProcesso();
 		loginPage.setEmail("gialmarques@comgas.com.br");
 		loginPage.setSenha("user");
-		loginPage.Acessar();
+		loginPage.acessar();
 		
 	}
 }
