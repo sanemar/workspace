@@ -1,7 +1,8 @@
 package br.gi.pkg.test;
 
-import br.gi.pkg.core.BaseTest;
+//import br.gi.pkg.core.BaseTest;
 import br.gi.pkg.pages.listaProcessoPage;
+import br.gi.pkg.test.loginTest;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -23,18 +24,29 @@ public class listaProcessoTest extends BaseTest{
 	
 	listaProcessoPage listaProcesso = new listaProcessoPage();
 	
-	private String today;
+	//private String today;
+	private String dia;
 	
 	@Test
 	public void selecionarDataDe(){
 		
 		//Pega a data atual como um número selecionado
-        today = getCurrentDay();
-        System.out.println("Today's number: " + today + "\n");
+        //today = getCurrentDay();
+        //System.out.println("Today's number: " + today + "\n");
         
-        listaProcesso.selecionaDataDe(today);
+        //listaProcesso.selecionaDataDe();
         
-        //localiza o formulário do calendário
+        
+        WebElement dateWidget = getDriver().findElement(By.className("mat-datepicker-toggle mat-datepicker-toggle-active"));
+        List<WebElement> columns=dateWidget.findElements(By.tagName("td"));
+
+        for (WebElement cell: columns){
+           //Select 13th Date 
+           if (cell.getText().equals("dia")){
+              cell.findElement(By.linkText("dia")).click();
+        }
+        
+/*        //localiza o formulário do calendário
       		WebElement dateWidget = getDriver().findElement(By.className("mat-datepicker-toggle mat-datepicker-toggle-active"));
       		//(By.xpath(".//*[@id='cdk-overlay-13']/div[2]/table/tbody"));
       				
@@ -42,38 +54,38 @@ public class listaProcessoTest extends BaseTest{
       		//List<WebElement> rows = dateWidgetFrom.findElements(By.tagName("tr"));
       		 
       		//armazena as colunas da tabela do controle
-      		List<WebElement> columns = dateWidgetFrom.findElements(By.tagName("td"));
+      		List<WebElement> columns = dateWidget.findElements(By.tagName("td"));
         
       //DatePicker é uma tabela. Percorrer as células da tabela e se uma célula corresponder à data atual, seleciona ela.
         for (WebElement cell: columns) {
-            /*
+            
             //If you want to click 18th Date
             if (cell.getText().equals("18")) {
-            */
+            
             //Select Today's Date
             if (cell.getText().equals(today)) {
                 cell.click();
                 break;
             }
-        }
-            
+        }*/
+        
        //Pega a data atual
-        private String getCurrentDay(){
-        	
-            //Cria um objeto do tipo Calender
-            Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
-     
-            //Pega a data atual selecionada como um número
-            int todayInt = calendar.get(Calendar.DAY_OF_MONTH);
-            System.out.println("Today Int: " + todayInt +"\n");
-     
-            //Converte inteiro para String
-            String todayStr = Integer.toString(todayInt);
-            System.out.println("Today Str: " + todayStr + "\n");
-     
-            return todayStr;
-        }
-	}         
+/*           private String getCurrentDay(){
+            	
+              //Cria um objeto do tipo Calender
+              Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+         
+              //Pega a data atual selecionada como um número
+              int todayInt = calendar.get(Calendar.DAY_OF_MONTH);
+              System.out.println("Today Int: " + todayInt +"\n");
+         
+              //Converte inteiro para String
+              String todayStr = Integer.toString(todayInt);
+              System.out.println("Today Str: " + todayStr + "\n");
+         
+                return todayStr;
+            }*/
+   //}         
 
 	@Test
 	public void filtrarNumeroProtocolo(){		
