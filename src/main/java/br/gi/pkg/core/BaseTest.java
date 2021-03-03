@@ -17,7 +17,7 @@ import org.openqa.selenium.TakesScreenshot;
 //import br.gi.pkg.utilities.constants;
 
 
-public class BaseTest {
+public class BaseTest{
 	
 	
 	@Rule
