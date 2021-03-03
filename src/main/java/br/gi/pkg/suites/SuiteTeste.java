@@ -11,8 +11,8 @@ import br.gi.pkg.test.listaProcessoTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({
-	loginTest.class,
-	listaProcessoTest.class
+	//loginTest.class,
+	//listaProcessoTest.class
 })
 public class SuiteTeste {
 	
